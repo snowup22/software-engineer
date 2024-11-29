@@ -16,578 +16,387 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <style>
 
-    
-<style>
-    /* CSS Variables for easy theme customization */ 
-    
-    :root { 
-    
-        --primary-color: #808080; /* Gray (60%) */ 
-    
-        --secondary-color: #B0B0B0; /* Medium Gray (30%) */ 
-    
-        --accent-color: #FFFFFF; /* White (10%) */ 
-    
-        --highlight-color: #3f51b5; /* Blue */ 
-    
-        --text-color: #fff; /* White text for better contrast */ 
-    
-        --button-padding: 15px 80px; 
-    
-        --font-size: 1.5rem; 
-    
-        --transition-speed: 0.3s; 
-    
-        --max-width: 800px; 
-    
-    } 
-    
-    
-    
-    /* Global Styles */ 
-    
-    * { 
-    
-        margin: 0; 
-    
-        padding: 0; 
-    
-        box-sizing: border-box; 
-    
-    } 
-    
-    
-    
-    body { 
-    
-        font-family: 'Poppins', sans-serif; /* Change to Poppins font for the body */ 
-    
-        text-align: center; 
-    
-        padding: 50px; 
-    
-        color: var(--text-color); 
-    
-        height: 100vh; 
-    
-        display: flex; 
-    
-        justify-content: center; 
-    
-        align-items: center; 
-    
-        flex-direction: column; 
-    
-        background:  
-    
-            radial-gradient(farthest-side at -33.33% 50%,#0000 52%,#c7be77 54% 57%,#0000 59%) 0 calc(128px/2), 
-    
-            radial-gradient(farthest-side at 50% 133.33%,#0000 52%,#c7be77 54% 57%,#0000 59%) calc(128px/2) 0, 
-    
-            radial-gradient(farthest-side at 133.33% 50%,#0000 52%,#c7be77 54% 57%,#0000 59%), 
-    
-            radial-gradient(farthest-side at 50% -33.33%,#0000 52%,#c7be77 54% 57%,#0000 59%), 
-    
-            #f8fafa; 
-    
-        background-size: calc(128px/4.667) 128px,128px calc(128px/4.667); 
-        transition: background-color var(--transition-speed), color var(--transition-speed);
-    
-    } 
-    
-    
-    
-    
-    /* About Me Button */
-    .about-me-btn-container {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        text-align: center;  /* Align buttons center */
-    }
-    
-    #aboutMeButton {
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #000;
-        background-color: rgb(238, 69, 60);
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        transition: background-color var(--transition-speed), transform var(--transition-speed);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    #aboutMeButton:hover {
-        background-color: rgb(213, 213, 88);
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    #darkModeToggle {
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #000;
-        background-color: #c8a942;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        transition: background-color var(--transition-speed), transform var(--transition-speed);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        margin-top: 10px;  /* Space between the two buttons */
-    }
-    
-    
-    #darkModeToggle:hover {
-        background-color: rgb(109, 107, 107);
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Dark Mode Styles */
-    body.dark-mode {
-        background-color: #8f8b8b;
-        color: #d42929;
-    }
-    
-    body.dark-mode #darkModeToggle {
-        background-color: #1e1e22;
-        color: rgb(251, 245, 245);
-    }
-    
-    body.dark-mode #darkModeToggle:hover {
-        background-color: #4f588c;
-        color: white;
-    }
-    
-    body.dark-mode .modal-content {
-        background-color: #a29d9d;
-        color: rgb(15, 14, 14);
-    }
-    
-    body.dark-mode #aboutMeButton{
-        background-color: #1b1818;
-        color: white;
-    }
-    
-    body.dark-mode #aboutMeButton:hover{
-        background-color: #594f92;
-        color: white;
-    }
-    
-    body.dark-mode button,
-    body.dark-mode .option-btn {
-        background-color: #42446f;
-        color: #ffffff;
-    }
-    
-    body.dark-mode button,
-    body.dark-mode .option-btn:hover {
-        background-color: rgb(23, 20, 20);
-        color: #ffffff;
-    }
-    
-    body.dark-mode button:hover {
-        background-color: #3c4472;
-        
-    }
-    
-    body.dark-mode h1 { 
-    
-        font-family: 'Lobster', cursive; /* Use Lobster font for the heading */ 
-    
-        font-size: 4rem; /* Increase the size for more impact */ 
-    
-        margin-bottom: 40px; 
-    
-        font-weight: 450; 
-    
-        color: rgb(226, 231, 234); /* Changed text color to black */ 
-    
-        text-transform: uppercase; 
-    
-        letter-spacing: 3px; 
-    
-        text-shadow: white; /* Adding text shadow for better visibility */ 
-    
-    } 
-    body.dark-mode .about-me-btn-container button,
-    body.dark-mode .top-right a {
-        background-color: #1b1a1a;
-        color: #fff9f9;
-    }
-    
-    body.dark-mode .about-me-btn-container button,
-    body.dark-mode .top-right a:hover {
-        background-color: #484068;
-        color: #fff9f9;
-    }
-    
-    
-    .top-left {
-        
-        position: center; /* Absolute positioning */
-        top: 0px; /* 0 pixels from the top */
-        left: 0px; /* 0 pixels from the left */
-       
-    }
-    
-    .top-left img {
-        color:hsl(from color h s l)
-        width: 350%; /* Make the image fill the parent div */
-        height: 350%; /* Make the image fill the parent div */
-        object-fit: cover; /* Ensure the image covers the whole div without distorting */
-    }
-    
-    
-    h1 { 
-    
-        font-family: 'Lobster', cursive; /* Use Lobster font for the heading */ 
-    
-        font-size: 4rem; /* Increase the size for more impact */ 
-    
-        margin-bottom: 40px; 
-    
-        font-weight: 450; 
-    
-        color: #000; /* Changed text color to black */ 
-    
-        text-transform: uppercase; 
-    
-        letter-spacing: 3px; 
-    
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adding text shadow for better visibility */ 
-    
-    } 
-    
-    /* About Me Button */
-    .about-me-btn-container {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-    }
-    
-    #aboutMeButton {
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #000;
-        background-color: rgb(235, 186, 81);
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        transition: background-color var(--transition-speed), transform var(--transition-speed);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    
-    #aboutMeButton:hover {
-        background-color: rgb(213, 213, 88);
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* About Me Modal Styles */
-    .modal {
-        display: none;  /* Hidden by default */
-        position: fixed;  /* Stay in place */
-        z-index: 1;  /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
-        padding-top: 60px;
-    }
-    
-    .modal-content {
-        background-color: #249ac1;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #1d1919;
-        width: 80%; /* Could be more or less, depending on screen size */
-        max-width: 600px;
-        border-radius: 18px;
-    }
-    
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    
-    /* Top-right corner buttons */ 
-    
-    .top-right { 
-    
-        position: absolute; 
-    
-        top: 50px; 
-    
-        right: 25px; 
-    
-        display: flex; 
-    
-        gap: 15px; /* Space between buttons */ 
-    
-    } 
-    
-    
-    
-    .top-right a { 
-    
-        text-decoration: none; 
-    
-        padding: 5px 10px; 
-    
-        font-size: 1rem; 
-    
-        font-weight: 600; 
-    
-        color: #000; 
-    
-        background-color: rgb(230, 188, 90); 
-    
-        border-radius: 8px; 
-    
-        transition: background-color var(--transition-speed), transform var(--transition-speed); 
-    
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-    
-    } 
-    
-    
-    
-    .top-right a:hover { 
-    
-        background-color: var(--highlight-color); 
-    
-        color: #fff; 
-    
-        transform: scale(1.1); 
-    
-    } 
-    
-    
-    
-    /* Button Styles */ 
-    
-    button { 
-    
-        padding: 5px; 
-    
-        margin-top: 12px; 
-    
-        font-size: var(--font-size); 
-    
-        border: none; 
-    
-        border-radius: 12px; 
-    
-        background-color: rgb(225, 168, 77); /* 30% Medium Gray */ 
-    
-        color: #000; /* Sharp black text for buttons */ 
-    
-        cursor: pointer; 
-    
-        transition: all var(--transition-speed) ease-in-out; 
-    
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
-    
-        font-weight: 600; 
-    
-    } 
-    
-    
-    
-    button:hover { 
-    
-        background-color: rgb(213, 213, 88); /* 10% White */ 
-    
-        transform: scale(1.05); 
-    
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
-    
-    } 
-    
-    
-    
-    /* Options Styling */ 
-    
-    .options { 
-    
-        display: none; 
-    
-        margin-top: 30px; 
-    
-        opacity: 0; 
-    
-        transition: opacity var(--transition-speed); 
-    
-    } 
-    
-    
-    
-    .options.show { 
-    
-        display: block; 
-    
-        opacity: 1; 
-    
-    } 
-    
-    
-    
-    .option-btn { 
-    
-        margin: 10px; 
-    
-        font-size: 1.2rem; 
-    
-        padding: var(--button-padding); 
-    
-        border-radius: 8px; 
-    
-        cursor: pointer; 
-    
-        font-weight: 500; 
-    
-        transition: transform var(--transition-speed), background-color var(--transition-speed); 
-    
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    
-        color: #000; /* Sharp black text for options */ 
-    
-    } 
-    
-    
-    
-    .option-btn:nth-child(1) { 
-    
-        background-color: var(--primary-color); /* 60% Gray */ 
-    
-    } 
-    
-    
-    
-    .option-btn:nth-child(2) { 
-    
-        background-color: var(--highlight-color); /* Blue (complementary) */ 
-    
-    } 
-    
-    
-    
-    .option-btn:nth-child(3) { 
-    
-        background-color: #4caf50; /* Green */ 
-    
-    } 
-    
-    
-    
-    .option-btn:nth-child(4) { 
-    
-        background-color: var(--accent-color); /* 10% White */ 
-    
-    } 
-    
-    
-    
-    .option-btn:hover { 
-    
-        transform: translateY(-3px); 
-    
-        background-color: #e1b83d; 
-    
-        color: var(--accent-color); 
-    
-    } 
-    
-    
-    
-    /* Message Styling */ 
-    
-    .message { 
-    
-        margin-top: 20px; 
-    
-        font-size: 1.2rem; 
-    
-        color: #000; /* Sharp black color for message text */ 
-    
-        font-weight: 500; 
-    
-        max-width: var(--max-width); 
-    
-        width: 100%; 
-    
-        line-height: 1.6; 
-    
-        text-align: center; 
-    
-        letter-spacing: 1px; 
-    
-        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow for the text */ 
-    
-    } 
-    
-    
-    
-    /* Responsive Styling */ 
-    
-    @media (max-width: 768px) { 
+        /* CSS Variables for easy theme customization */ 
+    
+        :root { 
+            --primary-color: #808080; /* Gray (60%) */ 
+            --secondary-color: #B0B0B0; /* Medium Gray (30%) */ 
+            --accent-color: #FFFFFF; /* White (10%) */ 
+            --highlight-color: #3f51b5; /* Blue */ 
+            --text-color: #fff; /* White text for better contrast */ 
+            --button-padding: 15px 80px; 
+            --font-size: 1.5rem; 
+            --transition-speed: 0.3s; 
+            --max-width: 800px; 
+        } 
+        /* Global Styles */ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Poppins', sans-serif; /* Change to Poppins font for the body */ 
+            text-align: center; 
+            padding: 50px; 
+            color: var(--text-color); 
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+            background:  
+                radial-gradient(farthest-side at -33.33% 50%,#0000 52%,#c7be77 54% 57%,#0000 59%) 0 calc(128px/2), 
+                radial-gradient(farthest-side at 50% 133.33%,#0000 52%,#c7be77 54% 57%,#0000 59%) calc(128px/2) 0, 
+                radial-gradient(farthest-side at 133.33% 50%,#0000 52%,#c7be77 54% 57%,#0000 59%), 
+                radial-gradient(farthest-side at 50% -33.33%,#0000 52%,#c7be77 54% 57%,#0000 59%), 
+                #f8fafa; 
+            background-size: calc(128px/4.667) 128px,128px calc(128px/4.667); 
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        } 
+    
+        /* About Me Button */
+        .about-me-btn-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: center;  /* Align buttons center */
+        }
+    
+        #aboutMeButton:hover {
+            background-color: rgb(213, 213, 88);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    
+    /*darkmode sign*/
+        #darkModeToggle {
+            padding: 10px 20px;
+            font-weight: 600;
+            color: #100f0f;
+            background-color: #c8a942;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;  /* Space between the two buttons */
+        }
+    
+    
+        #darkModeToggle:hover {
+            background-color: rgb(109, 107, 107);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Dark Mode body */
+        body.dark-mode {
+            background-color: #8f8b8b;
+        }
+    /* lightmode sign */
+        body.dark-mode #darkModeToggle {
+            background-color: #1e1e22;
+            color: rgb(251, 245, 245);
+        }
+    
+        body.dark-mode #darkModeToggle:hover {
+            background-color: #4f588c;
+            color: white;
+        }
+    /*YUNG TEXT SA LOOB NG ABOUT ME*/
+        body.dark-mode .modal-content {
+            background-image: url("images/mess.jpg");
+            background-size: 340px;
+            color: rgb(136, 59, 4);
+            font-size: small;
+            font-style: italic;
+            position: relative;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #1d1919;
+            height: 600px;
+            max-width: 600px;
+            border-radius: 18px;
+        }
+    /* ABOUT ME COLOR BACKGROUND */
+        body.dark-mode #aboutMeButton{
+            background-color: #1b1818;
+            color: white;
+        }
+    /* HOVER SA DARKMODE */
+        body.dark-mode #aboutMeButton:hover{
+            background-color: #594f92;
+            color: white;
+        }
+    /*OPTION SA BABA NG HOW CAN I HELP YOU COLOR*/
+        body.dark-mode button,
+        body.dark-mode .option-btn {
+            background-color: #42446f;
+            color: #ffffff;
+        }
+    /* HOW CAN I HELP YOU COLOR */
+        body.dark-mode button,
+        body.dark-mode .option-btn:hover {
+            background-color: rgb(23, 20, 20);
+            color: #ffffff;
+        }
+    /* HOW CAN I HELP U HOVER */
+    
+        body.dark-mode button:hover {
+            background-color: #72643c;
+            
+        }
+    /* HI IM SOFTWARE ENG. COLOR TEXT DES */
+        body.dark-mode h1 { 
+            font-family: 'Lobster', cursive; /* Use Lobster font for the heading */ 
+            font-size: 4rem; /* Increase the size for more impact */ 
+            margin-bottom: 40px; 
+            font-weight: 450; 
+            color: rgb(226, 231, 234); /* Changed text color to black */ 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            text-shadow: white; /* Adding text shadow for better visibility */ 
+        } 
+    
+    /* COLOR SA MGA OPTION NG CONTACTS */
+        body.dark-mode .about-me-btn-container button,
+        body.dark-mode .top-right a {
+            background-color: #1b1a1a;
+            color: #fff9f9;
+        }
+    
+        body.dark-mode .about-me-btn-container button,
+        body.dark-mode .top-right a:hover {
+            background-color: #484068;
+            color: #fff9f9;
+        }
     
         h1 { 
-    
-            font-size: 2.2rem; 
-    
-            margin-bottom: 30px; 
-    
+            font-family: 'Lobster', cursive; /* Use Lobster font for the heading */ 
+            font-size: 4rem; /* Increase the size for more impact */ 
+            margin-bottom: 40px; 
+            font-weight: 450; 
+            color: #000; /* Changed text color to black */ 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adding text shadow for better visibility */ 
         } 
     
+        /* About Me Button */
+        .about-me-btn-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
     
+        #aboutMeButton {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000;
+            background-color: rgb(235, 186, 81);
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     
-        button, .option-btn { 
+        #aboutMeButton:hover {
+            background-color: rgb(213, 213, 88);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
     
-            font-size: 1.2rem; 
+        /* About Me Modal Styles */
+        .modal {
+            display: none;  /* Hidden by default */
+            position: fixed;  /* Stay in place */
+            z-index: 1;  /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+            padding-top: 60px;
+        }
     
-            padding: 12px 24px; 
+        .modal-content {
+            background-image: url("images/mess.jpg");
+            background-size: 340px;
+            color: rgb(136, 59, 4);
+            font-size: small;
+            font-style: italic;
+            position: relative;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #1d1919;
+            height: 600px;
+            max-width: 600px;
+            border-radius: 18px;
+        }
     
+        
+    
+        .close {
+            color: #140f0f;
+            float: right;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+        /* Top-right corner buttons */ 
+    
+        .top-right { 
+            position: absolute; 
+            top: 50px; 
+            right: 25px; 
+            display: flex; 
+            gap: 15px; /* Space between buttons */ 
         } 
     
-    
-    
-        .message { 
-    
+        .top-right a { 
+            text-decoration: none; 
+            padding: 5px 10px; 
             font-size: 1rem; 
-    
+            font-weight: 600; 
+            color: #000; 
+            background-color: rgb(230, 188, 90); 
+            border-radius: 8px; 
+            transition: background-color var(--transition-speed), transform var(--transition-speed); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
         } 
     
-    } 
+        .top-right a:hover { 
+            background-color: var(--highlight-color); 
+            color: #fff; 
+            transform: scale(1.1); 
+        } 
+    
+        /* Button Styles */ 
+    
+        button { 
+            padding: 5px; 
+            margin-top: 12px; 
+            font-size: var(--font-size); 
+            border: none; 
+            border-radius: 12px; 
+            background-color: rgb(225, 168, 77); /* 30% Medium Gray */ 
+            color: #000; /* Sharp black text for buttons */ 
+            cursor: pointer; 
+            transition: all var(--transition-speed) ease-in-out; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+            font-weight: 600; 
+        } 
+    
+        button:hover { 
+            background-color: rgb(213, 213, 88); /* 10% White */ 
+            transform: scale(1.05); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+        } 
+    
+        /* Options Styling */ 
+        .options { 
+            display: none; 
+            margin-top: 30px; 
+            opacity: 0; 
+            transition: opacity var(--transition-speed); 
+        } 
+    
+        .options.show { 
+            display: block; 
+            opacity: 1; 
+        } 
+    
+        .option-btn { 
+            margin: 10px; 
+            font-size: 1.2rem; 
+            padding: var(--button-padding); 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            transition: transform var(--transition-speed), background-color var(--transition-speed); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            color: #000; /* Sharp black text for options */ 
+        } 
+    
+        .option-btn:nth-child(1) { 
+            background-color: var(--primary-color); /* 60% Gray */ 
+        } 
+    
+        .option-btn:nth-child(2) { 
+            background-color: var(--highlight-color); /* Blue (complementary) */ 
+        } 
+    
+        .option-btn:nth-child(3) { 
+            background-color: #4caf50; /* Green */ 
+        } 
+    
+        .option-btn:nth-child(4) { 
+            background-color: var(--accent-color); /* 10% White */ 
+        } 
+    
+        .option-btn:hover { 
+            transform: translateY(-3px); 
+            background-color: #e1b83d; 
+            color: var(--accent-color); 
+        }
+    
+        /* Message Styling */ 
+        .message {
+            margin-top: 20px; 
+            font-size: 1.2rem; 
+            color: #000; /* Sharp black color for message text */ 
+            font-weight: 500; 
+            max-width: var(--max-width); 
+            width: 100%; 
+            line-height: 1.6; 
+            text-align: center; 
+            letter-spacing: 1px; 
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* Adding a subtle shadow for the text */ 
+        } 
+    
+        /* Responsive Styling */ 
+    
+        @media (max-width: 768px) { 
+            h1 { 
+                font-size: 2.2rem; 
+                margin-bottom: 30px; 
+            } 
+            button, .option-btn { 
+                font-size: 1.2rem; 
+                padding: 12px 24px; 
+            } 
+    
+            .message { 
+                font-size: 1rem; 
+            }
+    
+        } 
     </style>
 
 </head> 
-
  
 
 <body> 
 
     <header>
-        <div class="top-left"> 
+        <div> 
         <img src="images/Main Scene2.gif" class="img-fl">
         </div>
+        <div> 
+            
+         </div>
     </header>
 
     <!-- About Me Button positioned in the top left corner -->
@@ -607,20 +416,25 @@
 <div id="aboutMeModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>About Me</h2>
-        <p>Hi there, My name is Edric! I live in the Philippines. I'm a freelancer/student, studying a program in Computer Engineering. I'm literate in several computer languages such as C++, C language, Python, and Full Stack Development, and I'm still expanding my skills. My hobbies include playing online games, reading books, watching different genres of movies, and I am also a cyclist.</p>
+        <h2><strong>About Me:</strong></h2>
+        <h3>Hi there, My name is Edric! I live in the Philippines. 
+            I'm a freelancer/student, studying a program in Computer Engineering. 
+            I'm literate in several computer languages such as C++, 
+            C language, Python, and Full Stack Development, 
+            and I'm still expanding my skills. My hobbies include 
+            playing online games, reading books, watching different genres
+             of movies, and a cyclist.
+        </h3>
     </div>
 </div>
-
 <div class="top-right">
     <a href="https://www.facebook.com/profile.php?id=100010316700446" target="_blank">Facebook</a>
     <a href="mailto:mambaedric@gmail.com">Email</a>
     <a href="https://www.upwork.com/freelancers/~0128ab857096f2eeab" target="_blank">upwork</a>
     <a href="https://discord.com/channels/@me/1147124336310882406" target="_blank">Discord</a>
 </div>
-
 <h1>Hi! I'm a Software Engineer</h1>
-<button id="helpButton">How can I help you?</button>
+<button id="helpButton"><em>How can I help you?</em></button>
 
 <!-- Options that will appear when the subtitle button is clicked -->
 <div class="options" id="optionsContainer">
